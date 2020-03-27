@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Biglietto Treno</title>
+    <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <div class="form-input">
+    <div id="form-input">
       <input id="nome" type="text" name="input-nome" value="" placeholder="Nome">
       <input id="km" type="text" name="input-km" value="" placeholder="KM">
       <input id="eta" type="text" name="input-eta" value="" placeholder="Età">
@@ -14,7 +15,7 @@
       <button id="btnAnnulla" type="button" name="button">Annulla</button>
     </div>
 
-    <div class="biglietto">
+    <div id="biglietto" class="hidden">
       <div>
         <h2>Nome passeggero</h2>
         <h3 id="ticketName"></h3>

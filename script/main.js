@@ -56,12 +56,17 @@ btnGenera.addEventListener("click",
     ticketType.innerHTML = tariffa;
     ticketPrice.innerHTML = biglietto.toFixed(2) + " €";
 
+    // assegno la classe .visible alla sezione del biglietto per mostrarla in pagina
+    document.getElementById('biglietto').className = "visible";
   }
 )
 
 // comportamento al click sul bottone "Annulla"
 btnAnnulla.addEventListener("click",
   function () {
+    // assegno la classe .hidden alla sezione del biglietto per nasconderla in pagina
+    document.getElementById('biglietto').className = "hidden";
+
     nome.value = "";
     km.value = "";
     eta.value = "";
