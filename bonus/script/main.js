@@ -58,6 +58,7 @@ btnGenera.addEventListener("click",
 
     // assegno la classe .visible alla sezione del biglietto per mostrarla in pagina
     document.getElementById('biglietto').className = "visible";
+    document.getElementById('ticketTitle').className = "visible"
   }
 )
 

@@ -45,7 +45,7 @@ button:hover {
   background-color: #f9f7f7;
   color: #112d4e;
   cursor: pointer;
-  border: 1px solid #112d4e;
+  box-shadow: 1px 1px #112d4e;
 }
 
 .titolo {
@@ -76,15 +76,24 @@ button:hover {
   border-radius: 10px;
 }
 
+#ticketTitle {
+  color: #f9f7f7;
+}
+
 #biglietto {
   height: 33%;
   width: 70%;
-  background-color: #dbe2ef;
+  background-color: #f9f7f7;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
+  border-top: 10px solid black;
+  border-bottom: 10px solid black;
+}
+
+#biglietto h3 {
+  color: #112d4e;
 }
 
 .row {
