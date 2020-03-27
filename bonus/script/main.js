@@ -24,41 +24,52 @@ btnGenera.addEventListener("click",
     var contEta = parseInt(eta.value);
     console.log(contNome, contKm, contEta);
 
-    // aggiungo logica usata nell'esercizio precedente e la modifico per usare
-    // le variabili prese dagli input invece dei prompt
+    // controllo che siano stati inseriti tutti i dati e siano corretti
+    if (contNome != "" && !isNaN(contKm) && !isNaN(contEta)) {
+      // aggiungo logica usata nell'esercizio precedente e la modifico per usare
+      // le variabili prese dagli input invece dei prompt
 
-    // variabili
-    var prezzo = 0.21; //prezzo al km
-    var percSconto = 0;
-    var sconto = 0;
-    var tariffa = "Prezzo pieno";
+      // variabili
+      var prezzo = 0.21; //prezzo al km
+      var percSconto = 0;
+      var sconto = 0;
+      var tariffa = "Prezzo pieno";
 
-    // calcolo il prezzo del biglietto e lo memorizzo in una variabile
-    var biglietto = contKm * prezzo;
+      // calcolo il prezzo del biglietto e lo memorizzo in una variabile
+      var biglietto = contKm * prezzo;
 
-    // controllo se l'eta è minore di 18 o maggiore di 65 e aggiorno la variabile percSconto di conseguenza
-    if (contEta < 18) {
-      percSconto = 20;
-      tariffa = "Sconto minorenni"
-    } else if (contEta > 65) {
-      percSconto = 40;
-      tariffa = "Sconto over 65"
+      // controllo se l'eta è minore di 18 o maggiore di 65 e aggiorno la variabile percSconto di conseguenza
+      if (contEta < 18) {
+        percSconto = 20;
+        tariffa = "Sconto minorenni"
+      } else if (contEta > 65) {
+        percSconto = 40;
+        tariffa = "Sconto over 65"
+      }
+
+      // calcolo il valore dello sconto e lo applico (se è il caso)
+      if (percSconto != 0) {
+        sconto = (biglietto / 100) * percSconto;
+        biglietto = biglietto - sconto;
+      }
+      console.log(biglietto);
+      // stampo in pagina le informazioni del biglietto
+      ticketName.innerHTML = contNome;
+      ticketType.innerHTML = tariffa;
+      ticketPrice.innerHTML = biglietto.toFixed(2) + " €";
+
+      // assegno la classe .visible alla sezione del biglietto per mostrarla in pagina
+      document.getElementById('biglietto').className = "visible";
+      // Stampo e rendo visibile il titolo della sezione biglietto
+      document.getElementById('ticketTitle').innerHTML = "Ecco il tuo biglietto";
+      document.getElementById('ticketTitle').className = "visible";
     }
-
-    // calcolo il valore dello sconto e lo applico (se è il caso)
-    if (percSconto != 0) {
-      sconto = (biglietto / 100) * percSconto;
-      biglietto = biglietto - sconto;
+    // se i dati inseriti sono incompleti o errati stampo un messaggio di errore e nascondo il biglietto nel caso sia già stato stampato in precedenza
+    else {
+      document.getElementById('ticketTitle').innerHTML = "Inserisci tutti i dati per favore.";
+      document.getElementById('ticketTitle').className = "visible";
+      document.getElementById('biglietto').className = "hidden";
     }
-    console.log(biglietto);
-    // stampo in pagina le informazioni del biglietto
-    ticketName.innerHTML = contNome;
-    ticketType.innerHTML = tariffa;
-    ticketPrice.innerHTML = biglietto.toFixed(2) + " €";
-
-    // assegno la classe .visible alla sezione del biglietto per mostrarla in pagina
-    document.getElementById('biglietto').className = "visible";
-    document.getElementById('ticketTitle').className = "visible"
   }
 )
 
