@@ -12,6 +12,9 @@ var km = document.getElementById('km');
 var eta = document.getElementById('eta');
 var btnGenera = document.getElementById('btnGenera');
 var btnAnnulla = document.getElementById('btnAnnulla');
+var ticketName = document.getElementById('ticketName');
+var ticketType = document.getElementById('ticketType');
+var ticketPrice = document.getElementById('ticketPrice');
 
 // creo un modo per salvare il contenuto degli input al click sul bottone "Genera"
 btnGenera.addEventListener("click",
@@ -28,6 +31,7 @@ btnGenera.addEventListener("click",
     var prezzo = 0.21; //prezzo al km
     var percSconto = 0;
     var sconto = 0;
+    var tariffa = "Prezzo pieno";
 
     // calcolo il prezzo del biglietto e lo memorizzo in una variabile
     var biglietto = contKm * prezzo;
@@ -35,8 +39,10 @@ btnGenera.addEventListener("click",
     // controllo se l'eta è minore di 18 o maggiore di 65 e aggiorno la variabile percSconto di conseguenza
     if (contEta < 18) {
       percSconto = 20;
+      tariffa = "Sconto minorenni"
     } else if (contEta > 65) {
       percSconto = 40;
+      tariffa = "Sconto over 65"
     }
 
     // calcolo il valore dello sconto e lo applico (se è il caso)
@@ -45,13 +51,22 @@ btnGenera.addEventListener("click",
       biglietto = biglietto - sconto;
     }
     console.log(biglietto);
+    // stampo in pagina le informazioni del biglietto
+    ticketName.innerHTML = contNome;
+    ticketType.innerHTML = tariffa;
+    ticketPrice.innerHTML = biglietto.toFixed(2) + " €";
+
   }
 )
 
+// comportamento al click sul bottone "Annulla"
 btnAnnulla.addEventListener("click",
   function () {
     nome.value = "";
     km.value = "";
     eta.value = "";
+    ticketName.innerHTML = "";
+    ticketType.innerHTML = "";
+    ticketPrice.innerHTML = "";
   }
 )
