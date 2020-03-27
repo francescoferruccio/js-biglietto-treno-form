@@ -67,7 +67,6 @@ btnAnnulla.addEventListener("click",
     // assegno la classe .hidden alla sezione del biglietto per nasconderla in pagina
     document.getElementById('biglietto').className = "hidden";
 
-    // Resetto i valori degli input e dell'output
     nome.value = "";
     km.value = "";
     eta.value = "";
