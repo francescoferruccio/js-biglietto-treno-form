@@ -76,8 +76,9 @@ btnGenera.addEventListener("click",
 // comportamento al click sul bottone "Annulla"
 btnAnnulla.addEventListener("click",
   function () {
-    // assegno la classe .hidden alla sezione del biglietto per nasconderla in pagina
+    // assegno la classe .hidden alla sezione del biglietto e al titolo per nasconderla in pagina
     document.getElementById('biglietto').className = "hidden";
+    document.getElementById('ticketTitle').className = "hidden";
 
     nome.value = "";
     km.value = "";
